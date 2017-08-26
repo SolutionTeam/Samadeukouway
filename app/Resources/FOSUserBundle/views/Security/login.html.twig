@@ -1,0 +1,29 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <!-- breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+                <li><a href="{{ path('font_homepage')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+                <li class="active">Page de connexion</li>
+            </ol>
+        </div>
+    </div>
+    <!-- //breadcrumbs -->
+    <!-- login -->
+    <div class="login">
+        <div class="container">
+            <h2>Formulaire de connexion</h2>
+
+            <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
+
+                {% block fos_user_content %}
+                    {{ include('@FOSUser/Security/login_content.html.twig') }}
+                {% endblock fos_user_content %}
+            </div>
+            <h4>Pour les nouveaux</h4>
+            <p><a href="{{ path('fos_user_registration_register')}}">S'inscrire ici</a> (Ou) revenir à <a href="{{ path('font_homepage')}}">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
+        </div>
+    </div>
+    <!-- //login -->
+{% endblock %}
